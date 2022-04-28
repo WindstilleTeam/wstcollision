@@ -1,6 +1,2 @@
 *~
-*.o
-/.sconsign.dblite
-/main
 /result
-
