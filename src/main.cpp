@@ -20,7 +20,7 @@
 #include <ClanLib/display.h>
 #include <ClanLib/core.h>
 #include <ClanLib/gl.h>
-#include "collision.hxx"
+#include "collision.hpp"
 
 int main()
 {

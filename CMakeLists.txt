@@ -6,9 +6,9 @@ include(GNUInstallDirs)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(CLANLIB REQUIRED clanCore-1.0 clanDisplay-1.0 clanGL-1.0 clanSignals-1.0 IMPORTED_TARGET)
 add_executable(wstcollision
-  src/main.cxx
-  src/colltest.cxx
-  src/collision.cxx)
+  src/main.cpp
+  src/colltest.cpp
+  src/collision.cpp)
 target_link_libraries(wstcollision PkgConfig::CLANLIB)
 
 install(TARGETS wstcollision

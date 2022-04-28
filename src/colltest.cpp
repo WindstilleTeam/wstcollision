@@ -1,5 +1,5 @@
-#include "colltest.hxx"
-#include "collision.hxx"
+#include "colltest.hpp"
+#include "collision.hpp"
 #include <assert.h>
 
 SweepResult simple_sweep_1d(float a, float aw, float av,

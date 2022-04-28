@@ -1,5 +1,5 @@
-#include "collision.hxx"
-#include "colltest.hxx"
+#include "collision.hpp"
+#include "colltest.hpp"
 
 #include <assert.h>
 
