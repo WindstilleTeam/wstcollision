@@ -2,7 +2,7 @@
   description = "Generic 2d editor for games";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-20.09";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
     flake-utils.url = "github:numtide/flake-utils";
 
     clanlib.url = "gitlab:grumbel/clanlib-1.0";
@@ -21,11 +21,16 @@
             version = "0.0.0";
             src = nixpkgs.lib.cleanSource ./.;
             installPhase = ''
-              make install PREFIX=$out
+              mkdir $out/bin
+              cp -v main $out/bin/collisiontest
+              wrapProgram $out/bin/collisiontest \
+                --prefix LIBGL_DRIVERS_PATH ":" "${pkgs.mesa.drivers}/lib/dri" \
+                --prefix LD_LIBRARY_PATH ":" "${pkgs.mesa.drivers}/lib"
             '';
-            nativeBuildInputs = [
-              pkgs.scons
-              pkgs.pkgconfig
+            nativeBuildInputs = with pkgs; [
+              makeWrapper
+              pkgconfig
+              scons
             ];
             buildInputs = [
               clanlib.defaultPackage.${system}
