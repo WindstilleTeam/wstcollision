@@ -1,11 +1,9 @@
 {
-  description = "Generic 2d editor for games";
-
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
     flake-utils.url = "github:numtide/flake-utils";
 
-    clanlib.url = "gitlab:grumbel/clanlib-1.0";
+    clanlib.url = "github:grumbel/clanlib-1.0";
     # clanlib.inputs.nixpkgs.follows = "nixpkgs";
     clanlib.inputs.flake-utils.follows = "flake-utils";
   };
