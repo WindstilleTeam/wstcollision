@@ -14,10 +14,10 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in {
         packages = rec {
-          default = collisiontest;
+          default = wstcollision;
 
-          collisiontest = pkgs.stdenv.mkDerivation {
-            pname = "collisiontest";
+          wstcollision = pkgs.stdenv.mkDerivation {
+            pname = "wstcollision";
             version = "0.0.0";
             src = nixpkgs.lib.cleanSource ./.;
             postFixup = ''
