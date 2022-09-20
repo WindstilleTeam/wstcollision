@@ -12,8 +12,10 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-      in rec {
-        packages = flake-utils.lib.flattenTree {
+      in {
+        packages = rec {
+          default = collisiontest;
+
           collisiontest = pkgs.stdenv.mkDerivation {
             pname = "collisiontest";
             version = "0.0.0";
@@ -29,10 +31,10 @@
               cmake
             ];
             buildInputs = [
-              clanlib.defaultPackage.${system}
+              clanlib.packages.${system}.default
             ];
            };
         };
-        defaultPackage = packages.collisiontest;
-      });
+      }
+    );
 }
